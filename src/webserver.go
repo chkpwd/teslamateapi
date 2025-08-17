@@ -232,9 +232,7 @@ func initDBconnection() {
 	dbtimeout := (getEnvAsInt("DATABASE_TIMEOUT", 60000) / 1000)
 	dbssl := getEnvAsBool("DATABASE_SSL", false)
 	// dbipv6 := getEnvAsBool("DATABASE_IPV6", false)
-	if dbssl {
-		dbsslmode = "prefer"
-	}
+
 	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=%s connect_timeout=%d", dbhost, dbport, dbuser, dbpass, dbname, dbsslmode, dbtimeout)
 
 	// opening connection to postgres
